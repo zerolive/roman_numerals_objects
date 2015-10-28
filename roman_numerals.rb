@@ -16,6 +16,7 @@ class RomanCitizen
 			number = Ten.build(number).first
 			textreturn << Five.build(number).last
 			number = Five.build(number).first
+			textreturn << One.build(number).last
 			return textreturn
 		end
 
@@ -119,6 +120,21 @@ class Five < RomanCitizen
 
 	VALUE = 5
 	LETTER = "V"
+
+	class << self
+
+		def build number
+			return array_maker(number, VALUE, LETTER)
+		end
+
+	end
+
+end
+
+class One < RomanCitizen
+
+	VALUE = 1
+	LETTER = "I"
 
 	class << self
 

@@ -21,4 +21,7 @@ describe "A roman citizen" do
 	it "translates 5 to V" do
 		expect(RomanCitizen.translate(5)).to eq("V")
 	end
+	it "translates 1 to I" do
+		expect(RomanCitizen.translate(1)).to eq("I")
+	end
 end
