@@ -1,32 +1,64 @@
 class RomanCitizen
 
-	LETTERS = { 1000 => "M", 900 => "CM", 500 => "D", 400 => "CD", 100 => "C", 90 => "XC", 
-							50 => "L", 40 => "XL", 10 => "X", 9 => "IX", 5 => "V", 4 => "IV", 1 => "I"}
+	class << self
 
-	def self.translate number		
-		textreturn = ""
-		LETTERS.each { |value, letter| 
-			textreturn << RomanNumber.build(number, value, letter)
-			number = CalculateNextNumber.build(number, value)				
-		}
-		return textreturn
+		def translate number
+			textreturn = ""
+			textreturn << Thousands.build(number).last
+			number = Thousands.build(number).first
+			textreturn << FiveHundred.build(number).last
+			return textreturn
+		end
+
+		private
+
+			def array_maker number, value, letter
+				arrayreturn = []
+				arrayreturn << next_number(number, value)
+				arrayreturn << letter * quantity_of_letters(number, value)
+				return arrayreturn
+			end
+
+			def quantity_of_letters number, value
+				number / value
+			end
+
+			def next_number number, value
+				number % value
+			end
+
 	end
 
 end
 
-class RomanNumber
+class Thousands < RomanCitizen
 
-	def self.build number, value, letter
-		quantity = number / value
-		return letter * quantity
+	VALUE = 1000
+	LETTER = "M"
+
+	class << self
+
+		def build number
+			return array_maker(number, VALUE, LETTER)
+		end
+
 	end
 
 end
 
-class CalculateNextNumber
+class FiveHundred < RomanCitizen
 
-	def self.build number, value
-		return number % value
+	VALUE = 500
+	LETTER = "D"
+
+	class << self
+
+		def build number
+			return array_maker(number, VALUE, LETTER)
+		end
+
+		private
+
 	end
 
 end
@@ -39,4 +71,4 @@ end
 #D = 500
 #M = 1,000
 
-#p RomanCitizen.translate(1238)
+p RomanCitizen.translate(2638)
