@@ -15,4 +15,7 @@ describe "A roman citizen" do
 	it "translates 50 to L" do
 		expect(RomanCitizen.translate(50)).to eq("L")
 	end
+	it "translates 10 to X" do
+		expect(RomanCitizen.translate(10)).to eq("X")
+	end
 end
