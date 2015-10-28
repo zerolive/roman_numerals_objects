@@ -9,7 +9,10 @@ describe "A roman citizen" do
 	it "translates 500 to D" do
 		expect(RomanCitizen.translate(500)).to eq("D")
 	end
-	xit "translates 100 to C" do
+	it "translates 100 to C" do
 		expect(RomanCitizen.translate(100)).to eq("C")
+	end
+	it "translates 50 to L" do
+		expect(RomanCitizen.translate(50)).to eq("L")
 	end
 end

@@ -7,6 +7,11 @@ class RomanCitizen
 			textreturn << Thousands.build(number).last
 			number = Thousands.build(number).first
 			textreturn << FiveHundred.build(number).last
+			number = FiveHundred.build(number).first
+			textreturn << OneHundred.build(number).last
+			number = OneHundred.build(number).first
+			textreturn << Fifty.build(number).last
+			number = Fifty.build(number).first
 			return textreturn
 		end
 
@@ -57,7 +62,35 @@ class FiveHundred < RomanCitizen
 			return array_maker(number, VALUE, LETTER)
 		end
 
-		private
+	end
+
+end
+
+class OneHundred < RomanCitizen
+
+	VALUE = 100
+	LETTER = "C"
+
+	class << self
+
+		def build number
+			return array_maker(number, VALUE, LETTER)
+		end
+
+	end
+
+end
+
+class Fifty < RomanCitizen
+
+	VALUE = 50
+	LETTER = "L"
+
+	class << self
+
+		def build number
+			return array_maker(number, VALUE, LETTER)
+		end
 
 	end
 
@@ -71,4 +104,4 @@ end
 #D = 500
 #M = 1,000
 
-p RomanCitizen.translate(2638)
+#p RomanCitizen.translate(2638)
