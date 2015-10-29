@@ -36,4 +36,6 @@ end
 #D = 500
 #M = 1,000
 
-p RomanCitizen.translate(49)
+# (VALUE * 2) - number <= 100
+
+p RomanCitizen.translate(2953)

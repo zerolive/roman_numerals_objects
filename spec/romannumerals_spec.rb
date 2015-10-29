@@ -6,6 +6,12 @@ describe "A roman citizen" do
 	it "translates 1000 to M" do
 		expect(RomanCitizen.translate(1000)).to eq("M")
 	end
+	it "translates 900 to CM" do
+		expect(RomanCitizen.translate(900)).to eq("CM")
+	end
+	it "translates 400 to CD" do
+		expect(RomanCitizen.translate(400)).to eq("CD")
+	end
 	it "translates 500 to D" do
 		expect(RomanCitizen.translate(500)).to eq("D")
 	end
@@ -23,5 +29,8 @@ describe "A roman citizen" do
 	end
 	it "translates 1 to I" do
 		expect(RomanCitizen.translate(1)).to eq("I")
+	end
+	it "translates 2953 to MMCMLIII" do
+		expect(RomanCitizen.translate(2953)).to eq("MMCMLIII")
 	end
 end
