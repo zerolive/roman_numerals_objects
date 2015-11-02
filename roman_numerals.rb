@@ -164,5 +164,3 @@ class One < RomanCitizen
 	end
 
 end
-
-p RomanCitizen.translate(3900)
