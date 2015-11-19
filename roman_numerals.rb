@@ -28,7 +28,9 @@ class Thousands < RomanCitizen
 	LETTER = "M"
 
 	def self.build number, romannumber
-		return NineHundred.build(next_number(number, VALUE), roman_number(number, VALUE, LETTER, romannumber))
+		number_to_translate = next_number(number, VALUE)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return NineHundred.build(number_to_translate, number_translated)
 	end
 
 end
@@ -39,7 +41,9 @@ class NineHundred < RomanCitizen
 	LETTER = "CM"
 
 	def self.build number, romannumber
-		return FiveHundred.build(next_number(number, VALUE), roman_number(number, VALUE, LETTER, romannumber))
+		number_to_translate = next_number(number, VALUE)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return FiveHundred.build(number_to_translate, number_translated)
 	end
 
 end
@@ -50,7 +54,9 @@ class FiveHundred < RomanCitizen
 	LETTER = "D"
 
 	def self.build number, romannumber
-		return FourHundred.build(next_number(number, VALUE), roman_number(number, VALUE, LETTER, romannumber))
+		number_to_translate = next_number(number, VALUE)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return FourHundred.build(number_to_translate, number_translated)
 	end
 
 end
@@ -61,7 +67,9 @@ class FourHundred < RomanCitizen
 	LETTER = "CD"
 
 	def self.build number, romannumber
-		return OneHundred.build(next_number(number, VALUE), roman_number(number, VALUE, LETTER, romannumber))
+		number_to_translate = next_number(number, VALUE)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return OneHundred.build(number_to_translate, number_translated)
 	end
 
 end
@@ -72,7 +80,9 @@ class OneHundred < RomanCitizen
 	LETTER = "C"
 
 	def self.build number, romannumber
-		return Ninety.build(next_number(number, VALUE), roman_number(number, VALUE, LETTER, romannumber))
+		number_to_translate = next_number(number, VALUE)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return Ninety.build(number_to_translate, number_translated)
 	end
 
 end
@@ -83,7 +93,9 @@ class Ninety < RomanCitizen
 	LETTER = "XC"
 
 	def self.build number, romannumber
-		return Fifty.build(next_number(number, VALUE), roman_number(number, VALUE, LETTER, romannumber))
+		number_to_translate = next_number(number, VALUE)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return Fifty.build(number_to_translate, number_translated)
 	end
 
 end
@@ -94,7 +106,9 @@ class Fifty < RomanCitizen
 	LETTER = "L"
 
 	def self.build number, romannumber
-		return Fourty.build(next_number(number, VALUE), roman_number(number, VALUE, LETTER, romannumber))
+		number_to_translate = next_number(number, VALUE)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return Fourty.build(number_to_translate, number_translated)
 	end
 
 end
@@ -105,7 +119,9 @@ class Fourty < RomanCitizen
 	LETTER = "XL"
 
 	def self.build number, romannumber
-		return Ten.build(next_number(number, VALUE), roman_number(number, VALUE, LETTER, romannumber))
+		number_to_translate = next_number(number, VALUE)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return Ten.build(number_to_translate, number_translated)
 	end
 
 end
@@ -116,7 +132,9 @@ class Ten < RomanCitizen
 	LETTER = "X"
 
 	def self.build number, romannumber
-		return Nine.build(next_number(number, VALUE), roman_number(number, VALUE, LETTER, romannumber))
+		number_to_translate = next_number(number, VALUE)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return Nine.build(number_to_translate, number_translated)
 	end
 
 end
@@ -127,7 +145,9 @@ class Nine < RomanCitizen
 	LETTER = "IX"
 
 	def self.build number, romannumber
-		return Five.build(next_number(number, VALUE), roman_number(number, VALUE, LETTER, romannumber))
+		number_to_translate = next_number(number, VALUE)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return Five.build(number_to_translate, number_translated)
 	end
 
 end
@@ -138,7 +158,9 @@ class Five < RomanCitizen
 	LETTER = "V"
 
 	def self.build number, romannumber
-		return Four.build(next_number(number, VALUE), roman_number(number, VALUE, LETTER, romannumber))
+		number_to_translate = next_number(number, VALUE)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return Four.build(number_to_translate, number_translated)
 	end
 
 end
@@ -149,7 +171,9 @@ class Four < RomanCitizen
 	LETTER = "IV"
 
 	def self.build number, romannumber
-		return One.build(next_number(number, VALUE), roman_number(number, VALUE, LETTER, romannumber))
+		number_to_translate = next_number(number, VALUE)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return One.build(number_to_translate, number_translated)
 	end
 
 end
@@ -160,7 +184,8 @@ class One < RomanCitizen
 	LETTER = "I"
 
 	def self.build number, romannumber
-		return roman_number(number, VALUE, LETTER, romannumber)
+		number_translated = roman_number(number, VALUE, LETTER, romannumber)
+		return number_translated
 	end
 
 end
