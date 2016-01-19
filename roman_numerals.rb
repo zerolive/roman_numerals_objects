@@ -8,19 +8,19 @@ class RomanCitizen
 
 		private
 
-			def roman_number number, value, letter, romannumber
+			def roman_number number, value, letter, roman_number
 				quantity = number / value
-				romannumber << letter * quantity
-				return romannumber
+				roman_number << letter * quantity
+				return roman_number
 			end
 
 			def next_number number, value
 				return number % value
 			end
 
-			def value_to_letter number, romannumber, value, letter
+			def value_to_letter number, roman_number, value, letter
 				number_to_translate = next_number(number, value)
-				number_translated = roman_number(number, value, letter, romannumber)
+				number_translated = roman_number(number, value, letter, roman_number)
 				return [number_to_translate, number_translated]
 			end
 
@@ -47,9 +47,9 @@ class Thousands < RomanCitizen
 
 	class << self
 
-		def build number_to_translate, romannumber
-			return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE
-			return [number_to_translate, romannumber]
+		def build number_to_translate, roman_number
+			return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE
+			return [number_to_translate, roman_number]
 		end
 
 		private
@@ -67,9 +67,9 @@ class NineHundred < RomanCitizen
 	LETTER = "CM"
 	LIMIT = 1000
 
-	def self.build number_to_translate, romannumber
-		return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
-		return [number_to_translate, romannumber]
+	def self.build number_to_translate, roman_number
+		return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
+		return [number_to_translate, roman_number]
 	end
 
 end
@@ -80,9 +80,9 @@ class FiveHundred < RomanCitizen
 	LETTER = "D"
 	LIMIT = 600
 
-	def self.build number_to_translate, romannumber
-		return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
-		return [number_to_translate, romannumber]
+	def self.build number_to_translate, roman_number
+		return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
+		return [number_to_translate, roman_number]
 	end
 
 end
@@ -93,9 +93,9 @@ class FourHundred < RomanCitizen
 	LETTER = "CD"
 	LIMIT = 500
 
-	def self.build number_to_translate, romannumber
-		return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
-		return [number_to_translate, romannumber]
+	def self.build number_to_translate, roman_number
+		return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
+		return [number_to_translate, roman_number]
 	end
 
 end
@@ -106,9 +106,9 @@ class OneHundred < RomanCitizen
 	LETTER = "C"
 	LIMIT = 301
 
-	def self.build number_to_translate, romannumber
-		return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
-		return [number_to_translate, romannumber]
+	def self.build number_to_translate, roman_number
+		return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
+		return [number_to_translate, roman_number]
 	end
 
 end
@@ -119,9 +119,9 @@ class Ninety < RomanCitizen
 	LETTER = "XC"
 	LIMIT = 100
 
-	def self.build number_to_translate, romannumber
-		return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
-		return [number_to_translate, romannumber]
+	def self.build number_to_translate, roman_number
+		return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
+		return [number_to_translate, roman_number]
 	end
 
 end
@@ -132,9 +132,9 @@ class Fifty < RomanCitizen
 	LETTER = "L"
 	LIMIT = 60
 
-	def self.build number_to_translate, romannumber
-		return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
-		return [number_to_translate, romannumber]
+	def self.build number_to_translate, roman_number
+		return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
+		return [number_to_translate, roman_number]
 	end
 
 end
@@ -145,9 +145,9 @@ class Fourty < RomanCitizen
 	LETTER = "XL"
 	LIMIT = 50
 
-	def self.build number_to_translate, romannumber
-		return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
-		return [number_to_translate, romannumber]
+	def self.build number_to_translate, roman_number
+		return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
+		return [number_to_translate, roman_number]
 	end
 
 end
@@ -158,9 +158,9 @@ class Ten < RomanCitizen
 	LETTER = "X"
 	LIMIT = 31
 
-	def self.build number_to_translate, romannumber
-		return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
-		return [number_to_translate, romannumber]
+	def self.build number_to_translate, roman_number
+		return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
+		return [number_to_translate, roman_number]
 	end
 
 end
@@ -171,9 +171,9 @@ class Nine < RomanCitizen
 	LETTER = "IX"
 	LIMIT = 10
 
-	def self.build number_to_translate, romannumber
-		return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
-		return [number_to_translate, romannumber]
+	def self.build number_to_translate, roman_number
+		return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
+		return [number_to_translate, roman_number]
 	end
 
 end
@@ -184,9 +184,9 @@ class Five < RomanCitizen
 	LETTER = "V"
 	LIMIT = 6
 
-	def self.build number_to_translate, romannumber
-		return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
-		return [number_to_translate, romannumber]
+	def self.build number_to_translate, roman_number
+		return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
+		return [number_to_translate, roman_number]
 	end
 
 end
@@ -197,9 +197,9 @@ class Four < RomanCitizen
 	LETTER = "IV"
 	LIMIT = 5
 
-	def self.build number_to_translate, romannumber
-		return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
-		return [number_to_translate, romannumber]
+	def self.build number_to_translate, roman_number
+		return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
+		return [number_to_translate, roman_number]
 	end
 
 end
@@ -210,9 +210,9 @@ class One < RomanCitizen
 	LETTER = "I"
 	LIMIT = 4
 
-	def self.build number_to_translate, romannumber
-		return value_to_letter number_to_translate, romannumber, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
-		return [number_to_translate, romannumber]
+	def self.build number_to_translate, roman_number
+		return value_to_letter number_to_translate, roman_number, VALUE, LETTER if can_translate? number_to_translate, VALUE, LIMIT
+		return [number_to_translate, roman_number]
 	end
 
 end
