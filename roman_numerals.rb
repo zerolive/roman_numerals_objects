@@ -1,28 +1,12 @@
 class RomanCitizen
-	NUMBERTOTRANSLATE = 0
-	TRANSLATEDNUMBER = 1
 
 	class << self
 
 		def translate number
-			return translating(number)
+			return DecimalNumber.to_roman number
 		end
 
 		private
-
-			def translating number_to_translate
-				first_translated_number = ''
-				translators = translators_numbers
-				numbers = [number_to_translate, first_translated_number]
-
-				while numbers[NUMBERTOTRANSLATE] > 0 do
-					translators.each do |translator|
-						numbers = translator.build(numbers[NUMBERTOTRANSLATE], numbers[TRANSLATEDNUMBER])
-					end
-				end
-
-				return numbers[TRANSLATEDNUMBER]
-			end
 
 			def roman_number number, value, letter, romannumber
 				quantity = number / value
@@ -40,14 +24,16 @@ class RomanCitizen
 				return [number_to_translate, number_translated]
 			end
 
-		  def translators_numbers
-		    result = []
-		    ObjectSpace.each_object(::Class) {|klass| result << klass if klass < self }
-		    result
+		  def can_translate? number, value, limit
+				minimum number, value and maximum number, limit
 		  end
 
-		  def can_translate? number, value, limit
-				number >= value and number < limit
+		  def minimum number, value
+		  		number >= value
+		  end
+
+		  def maximum number, limit
+		  		number < limit
 		  end
 
 	end
@@ -229,4 +215,35 @@ class One < RomanCitizen
 		return [number_to_translate, romannumber]
 	end
 
+end
+
+class DecimalNumber
+	TOTRANSLATE = 0
+	TRANSLATED = 1
+
+	class << self
+
+		def to_roman number_to_translate
+			first_translated_number = ''
+			translators = translators_numbers
+			numbers = [number_to_translate, first_translated_number]
+
+			while numbers[TOTRANSLATE] > 0 do
+				translators.each do |translator|
+					numbers = translator.build(numbers[TOTRANSLATE], numbers[TRANSLATED])
+				end
+			end
+
+			return numbers[TRANSLATED]
+		end
+
+		private
+
+		  def translators_numbers
+		    result = []
+		    ObjectSpace.each_object(::Class) {|klass| result << klass if klass < RomanCitizen }
+		    result
+		  end
+
+	end
 end
